@@ -1,0 +1,2 @@
+As Dlls inclusas na pasta com o código fonte são necessárias ao rodar a aplicação.
+Para iniciar a aplicação use argumentos da seguinte maneira sem as aspas "nome_do_banco_de_dados login senha".
