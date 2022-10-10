@@ -1,2 +1,3 @@
 As Dlls inclusas na pasta com o código fonte são necessárias ao rodar a aplicação. No entanto podem ser baixadas em sites de confiança, visto que não houve qualquer alteração nelas.
 Para iniciar a aplicação use argumentos da seguinte maneira sem as aspas "nome_do_banco_de_dados login senha".
+Usar banco de dados MySQL 8.0.30.
