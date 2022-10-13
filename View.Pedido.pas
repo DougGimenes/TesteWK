@@ -10,7 +10,7 @@ uses
   FireDAC.Comp.DataSet, Vcl.StdCtrls, Vcl.Mask, Vcl.Samples.Spin, Model.Produto,
   FireDAC.Phys.MySQLDef, FireDAC.Phys, FireDAC.Phys.MySQL, FireDAC.UI.Intf,
   FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.VCLUI.Wait,
-  FireDAC.Comp.UI, Model.Cliente, Model.Pedido;
+  FireDAC.Comp.UI, Model.Cliente, Model.Pedido, Connection.DataModule;
 
 
 type
@@ -52,7 +52,7 @@ type
     procedure BtnDeletarPedidoClick(Sender: TObject);
   private
     { Private declarations }
-    FConexao: TConexao;
+    //FConexao: TConexao;
     FCliente : TCliente;
     FPedido : TPedido;
 
@@ -297,9 +297,9 @@ end;
 
 procedure TFrmPedido.FormCreate(Sender: TObject);
 begin
-  Self.FConexao := TConexao.ObterInstancia();
-  Self.FConexao.GerarConexao(ParamStr(1), ParamStr(2), ParamStr(3));
-  Self.FConexao.Conectar();
+  //Self.FConexao := TConexao.ObterInstancia();
+  //Self.FConexao.GerarConexao(ParamStr(1), ParamStr(2), ParamStr(3));
+  //Self.FConexao.Conectar();
 
   Self.MtbPedido.Open();
 end;

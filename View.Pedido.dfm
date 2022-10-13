@@ -224,6 +224,7 @@ object FrmPedido: TFrmPedido
     Caption = 'Selecionar Pedido'
     TabOrder = 11
     OnClick = BtnEditarClick
+    ExplicitLeft = 479
   end
   object EdtEditarPedido: TEdit
     Left = 364
@@ -234,6 +235,7 @@ object FrmPedido: TFrmPedido
     NumbersOnly = True
     TabOrder = 12
     TextHint = 'C'#243'digo do Pedido'
+    ExplicitLeft = 360
   end
   object BtnDeletarPedido: TButton
     Left = 598
@@ -244,6 +246,7 @@ object FrmPedido: TFrmPedido
     Caption = 'Deletar Pedido'
     TabOrder = 13
     OnClick = BtnDeletarPedidoClick
+    ExplicitLeft = 594
   end
   object MtbPedido: TFDMemTable
     FetchOptions.AssignedValues = [evMode]

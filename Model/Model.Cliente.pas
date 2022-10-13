@@ -11,7 +11,8 @@ uses
   FireDAC.Phys.MySQL,
   FireDAC.UI.Intf,
   FireDAC.VCLUI.Wait,
-  FireDAC.Comp.UI;
+  FireDAC.Comp.UI,
+  Connection.DataModule;
 
 type
   TCliente = class(TObject)
@@ -38,11 +39,11 @@ implementation
 constructor TCliente.Create(ACodigo : Integer);
 var
   TbCliente: TFDQuery;
-  Conexao : TConexao;
+ // Conexao : TConexao;
 begin
-  Conexao := TConexao.ObterInstancia();
-  TbCliente :=  Conexao.GerarQuery();
-  Conexao.Conectar();
+  //Conexao := TConexao.ObterInstancia();
+  TbCliente :=  DmConexao.GerarQuery();
+  //Conexao.Conectar();
 
   TbCliente.SQL.Text := 'SELECT * FROM Clientes WHERE Codigo = ' + IntToStr(ACodigo);
   TbCliente.Open();

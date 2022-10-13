@@ -11,7 +11,8 @@ uses
   FireDAC.Phys.MySQL,
   FireDAC.UI.Intf,
   FireDAC.VCLUI.Wait,
-  FireDAC.Comp.UI;
+  FireDAC.Comp.UI,
+  Connection.DataModule;
 
 type
   TProduto = class(TObject)
@@ -36,11 +37,11 @@ implementation
 constructor TProduto.Create(ACodigo : Integer);
 var
   TbProduto: TFDQuery;
-  Conexao : TConexao;
+  //Conexao : TConexao;
 begin
-  Conexao := TConexao.ObterInstancia();
-  TbProduto :=  Conexao.GerarQuery();
-  Conexao.Conectar();
+  //Conexao := TConexao.ObterInstancia();
+  TbProduto :=  DmConexao.GerarQuery();
+  //Conexao.Conectar();
 
   TbProduto.SQL.Text := 'SELECT * FROM Produtos WHERE Codigo = ' + IntToStr(ACodigo);
   TbProduto.Open();

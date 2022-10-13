@@ -13,7 +13,8 @@ uses
   FireDAC.Phys.MySQL,
   FireDAC.UI.Intf,
   FireDAC.VCLUI.Wait,
-  FireDAC.Comp.UI;
+  FireDAC.Comp.UI,
+  Connection.DataModule;
 
 type
   ETipoOperacao = (toEntrada, toSaida);
@@ -76,11 +77,11 @@ implementation
 procedure TItemPedido.Alterar;
 var
   TbItemPedido: TFDQuery;
-  Conexao : TConexao;
+  //Conexao : TConexao;
 begin
-  Conexao := TConexao.ObterInstancia();
-  TbItemPedido := Conexao.GerarQuery();
-  Conexao.Conectar();
+  //Conexao := TConexao.ObterInstancia();
+  TbItemPedido := DmConexao.GerarQuery();
+  //Conexao.Conectar();
 
   TbItemPedido.Transaction.StartTransaction();
   try
@@ -112,11 +113,11 @@ end;
 constructor TItemPedido.Create(ACodigo: Integer);
 var
   TbItemPedido: TFDQuery;
-  Conexao : TConexao;
+  //Conexao : TConexao;
 begin
-  Conexao := TConexao.ObterInstancia();
-  TbItemPedido := Conexao.GerarQuery();
-  Conexao.Conectar();
+  //Conexao := TConexao.ObterInstancia();
+  TbItemPedido := DmConexao.GerarQuery();
+  //Conexao.Conectar();
 
   TbItemPedido.SQL.Text := 'SELECT * FROM Itens WHERE CodItem = ' + IntToStr(ACodigo);
   TbItemPedido.Open();
@@ -134,11 +135,11 @@ end;
 procedure TItemPedido.Deletar;
 var
   TbItemPedido: TFDQuery;
-  Conexao : TConexao;
+  //Conexao : TConexao;
 begin
-  Conexao := TConexao.ObterInstancia();
-  TbItemPedido := Conexao.GerarQuery();
-  Conexao.Conectar();
+  //Conexao := TConexao.ObterInstancia();
+  TbItemPedido := DmConexao.GerarQuery();
+  //Conexao.Conectar();
 
   TbItemPedido.SQL.Text := 'SELECT * FROM Itens WHERE CodItem = :CodItem';
   TbItemPedido.ParamByName('CodItem').AsInteger := Self.Codigo;
@@ -166,11 +167,11 @@ end;
 procedure TItemPedido.Inserir;
 var
   TbItemPedido: TFDQuery;
-  Conexao : TConexao;
+  //Conexao : TConexao;
 begin
-  Conexao := TConexao.ObterInstancia();
-  TbItemPedido := Conexao.GerarQuery();
-  Conexao.Conectar();
+  //Conexao := TConexao.ObterInstancia();
+  TbItemPedido := DmConexao.GerarQuery();
+  //Conexao.Conectar();
 
   TbItemPedido.Transaction.StartTransaction();
   try
@@ -209,11 +210,11 @@ end;
 procedure TPedido.Alterar;
 var
   TbPedido: TFDQuery;
-  Conexao : TConexao;
+  //Conexao : TConexao;
 begin
-  Conexao := TConexao.ObterInstancia();
-  TbPedido := Conexao.GerarQuery();
-  Conexao.Conectar();
+  //Conexao := TConexao.ObterInstancia();
+  TbPedido := DmConexao.GerarQuery();
+  //Conexao.Conectar();
 
   TbPedido.Transaction.StartTransaction();
   try
@@ -246,11 +247,11 @@ end;
 constructor TPedido.Create(ACodigo: Integer);
 var
   TbPedido: TFDQuery;
-  Conexao : TConexao;
+  //Conexao : TConexao;
 begin
-  Conexao := TConexao.ObterInstancia();
-  TbPedido := Conexao.GerarQuery;
-  Conexao.Conectar();
+  //Conexao := TConexao.ObterInstancia();
+  TbPedido := DmConexao.GerarQuery;
+  //Conexao.Conectar();
 
   TbPedido.SQL.Text := 'SELECT * FROM Pedidos WHERE NumPedido = ' + IntToStr(ACodigo);
   TbPedido.Open();
@@ -284,11 +285,11 @@ end;
 procedure TPedido.Deletar;
 var
   TbPedido: TFDQuery;
-  Conexao : TConexao;
+  //Conexao : TConexao;
 begin
-  Conexao := TConexao.ObterInstancia();
-  TbPedido := Conexao.GerarQuery();
-  Conexao.Conectar();
+  //Conexao := TConexao.ObterInstancia();
+  TbPedido := DmConexao.GerarQuery();
+  //Conexao.Conectar();
 
   for var Item in Self.Itens do
   begin
@@ -338,11 +339,11 @@ end;
 procedure TPedido.Inserir;
 var
   TbPedido: TFDQuery;
-  Conexao : TConexao;
+  //Conexao : TConexao;
 begin
-  Conexao := TConexao.ObterInstancia();
-  TbPedido := Conexao.GerarQuery();
-  Conexao.Conectar();
+  //Conexao := TConexao.ObterInstancia();
+  TbPedido := DmConexao.GerarQuery();
+  //Conexao.Conectar();
 
   TbPedido.Transaction.StartTransaction();
   try
